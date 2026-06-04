@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rudhra Biswas — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #1B2E45;
+    --navy-light: #243B55;
+    --gold: #B8965A;
+    --gold-light: #D4AF7A;
+    --gold-pale: #F5EDD8;
+    --cream: #FAFAF7;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+    --border: rgba(13,27,42,0.10);
+    --section-gap: 80px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,27,42,0.96);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 64px;
+    border-bottom: 1px solid rgba(184,150,90,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 60px;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(184,150,90,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(36,59,85,0.6) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid-lines {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(184,150,90,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,150,90,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-left { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    padding: 6px 16px;
+    border: 1px solid rgba(184,150,90,0.3);
+    border-radius: 2px;
+  }
+  .hero-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero-role {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 32px;
+    letter-spacing: 0.04em;
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 40px;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-right { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; }
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,150,90,0.2);
+    border-radius: 4px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 360px;
+    backdrop-filter: blur(10px);
+  }
+  .hero-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--navy-light));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+    border: 2px solid rgba(184,150,90,0.4);
+  }
+  .hero-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .hero-card-title { font-size: 13px; color: var(--gold); margin-bottom: 24px; }
+  .hero-card-divider { height: 1px; background: rgba(184,150,90,0.15); margin-bottom: 20px; }
+  .hero-card-meta { display: flex; flex-direction: column; gap: 10px; }
+  .hero-card-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.6); }
+  .hero-card-row i { font-size: 15px; color: var(--gold); width: 16px; }
+
+  /* ─── STATS BAR ─── */
+  .stats-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .stat-cell {
+    padding: 36px 24px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-cell::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  .stat-cell:hover::after { width: 60%; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ─── LAYOUT WRAPPER ─── */
+  .page { max-width: 1160px; margin: 0 auto; padding: 0 60px; }
+
+  /* ─── SECTION HEADER ─── */
+  .sec-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .sec-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .sec-line { flex: 1; height: 1px; background: var(--border); }
+  .sec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .sec-sub { font-size: 15px; color: var(--muted); font-weight: 300; max-width: 560px; }
+
+  section { padding: var(--section-gap) 0; }
+  section:nth-child(even) { background: var(--white); }
+
+  /* ─── ABOUT ─── */
+  .about-wrapper { padding: var(--section-gap) 0; }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
+  .about-text { font-size: 16px; color: #3D3D4E; line-height: 1.85; margin-bottom: 24px; }
+  .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .about-chip {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+  }
+  .about-chip:hover { border-color: var(--gold); }
+  .about-chip i { font-size: 16px; color: var(--gold); }
+  .profile-box {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 36px;
+    color: var(--white);
+  }
+  .profile-avatar-lg {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), rgba(184,150,90,0.3));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 700; color: var(--white);
+    margin-bottom: 20px;
+    border: 2px solid rgba(184,150,90,0.4);
+  }
+  .profile-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 700; color: var(--white);
+    margin-bottom: 4px;
+  }
+  .profile-role { font-size: 13px; color: var(--gold); margin-bottom: 24px; font-weight: 400; }
+  .profile-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 22px; }
+  .profile-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 13px; color: rgba(255,255,255,0.65);
+    margin-bottom: 14px;
+  }
+  .profile-row i { font-size: 16px; color: var(--gold); margin-top: 1px; flex-shrink: 0; }
+  .profile-row a { color: rgba(255,255,255,0.65); text-decoration: none; }
+  .profile-row a:hover { color: var(--gold); }
+  .cgpa-display {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cgpa-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .cgpa-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 8px; }
+  .cgpa-val { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--gold-light); }
+  .cgpa-max { font-size: 14px; color: rgba(255,255,255,0.3); }
+  .cgpa-bar { height: 3px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+  .cgpa-fill { height: 100%; width: 94%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 3px; }
+
+  /* ─── EXPERIENCE ─── */
+  .exp-section { background: var(--white); }
+  .exp-timeline { position: relative; }
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .exp-item { display: grid; grid-template-columns: 56px 1fr; gap: 0; margin-bottom: 40px; }
+  .exp-item:last-child { margin-bottom: 0; }
+  .exp-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 6px; }
+  .exp-dot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .exp-dot i { font-size: 17px; color: var(--gold); }
+  .exp-body {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-left: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .exp-body:hover {
+    border-color: rgba(184,150,90,0.3);
+    box-shadow: 0 4px 20px rgba(13,27,42,0.06);
+  }
+  .exp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 6px; flex-wrap: wrap; }
+  .exp-title { font-size: 16px; font-weight: 600; color: var(--navy); }
+  .exp-duration-pill {
+    font-size: 11px; font-weight: 500;
+    color: var(--gold);
+    background: var(--gold-pale);
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+  .exp-org { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .exp-list li {
+    font-size: 14px; color: #4B5563;
+    display: flex; gap: 10px; align-items: flex-start;
+    line-height: 1.6;
+  }
+  .exp-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* ─── CAMPAIGNS ─── */
+  .campaigns-section { background: var(--cream); }
+  .campaign-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .campaign-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .campaign-card:hover {
+    box-shadow: 0 8px 32px rgba(13,27,42,0.08);
+    border-color: rgba(184,150,90,0.25);
+  }
+  .campaign-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+  .campaign-icon {
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    background: var(--gold-pale);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .campaign-icon i { font-size: 20px; color: var(--gold); }
+  .campaign-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .campaign-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+  .campaign-impact { display: flex; align-items: baseline; gap: 6px; }
+  .campaign-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .campaign-unit { font-size: 12px; color: var(--muted); }
+
+  /* ─── ACHIEVEMENTS ─── */
+  .ach-section { background: var(--navy); }
+  .ach-section .sec-title { color: var(--white); }
+  .ach-section .sec-tag { color: var(--gold); }
+  .ach-section .sec-line { background: rgba(255,255,255,0.1); }
+  .ach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .ach-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,150,90,0.15);
+    border-radius: 4px;
+    padding: 28px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .ach-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(184,150,90,0.35);
+  }
+  .ach-medal {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .ach-medal.gold { background: rgba(184,150,90,0.15); color: var(--gold-light); }
+  .ach-medal.silver { background: rgba(200,200,200,0.1); color: #C0C0C0; }
+  .ach-title { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+  .ach-sub { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+  .ach-year {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 11px;
+    color: var(--gold);
+    border: 1px solid rgba(184,150,90,0.25);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  /* ─── SKILLS ─── */
+  .skills-section { background: var(--white); }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .skill-group-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-pill {
+    font-size: 13px; color: var(--navy);
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 6px 16px;
+    font-weight: 400;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .skill-pill:hover { border-color: var(--gold); background: var(--gold-pale); }
+
+  /* ─── EDUCATION ─── */
+  .edu-section { background: var(--cream); }
+  .edu-cards { display: flex; flex-direction: column; gap: 16px; }
+  .edu-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    transition: border-color 0.2s;
+  }
+  .edu-card:hover { border-color: rgba(184,150,90,0.3); }
+  .edu-left { display: flex; align-items: center; gap: 20px; }
+  .edu-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .edu-icon i { font-size: 20px; color: var(--gold); }
+  .edu-school { font-size: 15px; font-weight: 600; color: var(--navy); }
+  .edu-degree { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .edu-right { text-align: right; flex-shrink: 0; }
+  .edu-gpa {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .edu-gpa-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .edu-year-tag {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--gold);
+    background: var(--gold-pale);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  /* ─── TRAINING ─── */
+  .training-section { background: var(--white); }
+  .training-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .training-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 22px;
+    display: flex; gap: 14px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .training-card:hover { border-color: rgba(184,150,90,0.3); }
+  .training-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    border-radius: 6px;
+    background: var(--gold-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--gold);
+  }
+  .training-name { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 2px; }
+  .training-org { font-size: 12px; color: var(--muted); }
+  .training-year {
+    display: inline-block; margin-top: 6px;
+    font-size: 11px; color: var(--gold);
+    background: var(--gold-pale);
+    padding: 2px 8px; border-radius: 20px; font-weight: 500;
+  }
+
+  /* ─── PROJECTS ─── */
+  .projects-section { background: var(--cream); }
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .project-card:hover {
+    box-shadow: 0 8px 32px rgba(13,27,42,0.08);
+    border-color: rgba(184,150,90,0.3);
+  }
+  .project-banner {
+    background: var(--navy);
+    padding: 32px 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-banner::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(184,150,90,0.08);
+  }
+  .project-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: 30%;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(184,150,90,0.05);
+  }
+  .project-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(184,150,90,0.12);
+    border: 1px solid rgba(184,150,90,0.25);
+    padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .project-banner-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px; font-weight: 700;
+    color: var(--white); line-height: 1.15;
+    margin-bottom: 6px;
+    position: relative; z-index: 1;
+  }
+  .project-banner-sub { font-size: 13px; color: rgba(255,255,255,0.5); position: relative; z-index: 1; }
+  .project-body { padding: 32px; }
+  .project-desc { font-size: 15px; color: #4B5563; line-height: 1.8; margin-bottom: 28px; }
+  .project-stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-bottom: 28px;
+  }
+  .project-stat {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+  }
+  .project-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--navy); line-height: 1; display: block;
+  }
+  .project-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; display: block; }
+  .project-methods {
+    margin-bottom: 28px;
+  }
+  .project-methods-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--navy);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .method-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .method-tag {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--navy);
+    background: var(--gold-pale);
+    border: 1px solid rgba(184,150,90,0.2);
+    border-radius: 2px; padding: 6px 14px;
+    font-weight: 400;
+  }
+  .method-tag i { font-size: 14px; color: var(--gold); }
+  .project-responsibilities { margin-bottom: 0; }
+  .project-responsibilities-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--navy);
+    margin-bottom: 12px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .project-resp-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .project-resp-list li {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 14px; color: #4B5563; line-height: 1.65;
+  }
+  .project-resp-list li i { font-size: 16px; color: var(--gold); margin-top: 1px; flex-shrink: 0; }
+  .project-locations {
+    margin-top: 20px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .project-locations-label { font-size: 12px; color: var(--muted); font-weight: 500; }
+  .location-tag {
+    font-size: 12px; color: var(--navy);
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 20px; padding: 3px 12px;
+  }
+
+  /* ─── FOOTER / CONTACT ─── */
+  .footer {
+    background: var(--navy);
+    padding: 64px 60px 40px;
+  }
+  .footer-inner {
+    max-width: 1160px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: start;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 40px;
+  }
+  .footer-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 700;
+    color: var(--white); margin-bottom: 8px; line-height: 1.1;
+  }
+  .footer-left h2 span { color: var(--gold-light); }
+  .footer-left p { font-size: 14px; color: rgba(255,255,255,0.5); max-width: 340px; line-height: 1.7; margin-top: 12px; }
+  .footer-contact { display: flex; flex-direction: column; gap: 14px; }
+  .footer-row {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 14px; color: rgba(255,255,255,0.65);
+  }
+  .footer-row i { font-size: 18px; color: var(--gold); width: 20px; text-align: center; }
+  .footer-row a { color: rgba(255,255,255,0.65); text-decoration: none; }
+  .footer-row a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1160px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px;
+    font-size: 12px; color: rgba(255,255,255,0.25);
+    flex-wrap: wrap; gap: 8px;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 600; color: var(--gold);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 100px 32px 60px; min-height: auto; }
+    .hero-right { display: none; }
+    nav { padding: 0 32px; }
+    .nav-links { gap: 20px; }
+    .hero h1 { font-size: 52px; }
+    .page { padding: 0 32px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .campaign-grid, .ach-grid, .skills-grid, .training-grid, .footer-inner { grid-template-columns: 1fr; }
+    .stats-bar { grid-template-columns: repeat(3, 1fr); }
+    .footer { padding: 48px 32px 32px; }
+    .edu-card { flex-direction: column; align-items: flex-start; }
+    .edu-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Rudhra Biswas</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#campaigns">Campaigns</a></li>
+    <li><a href="#achievements">Awards</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Campus Ambassador · Marketing Professional</div>
+    <h1>Rudhra<br><span>Biswas</span></h1>
+    <p class="hero-role">Marketing Undergraduate · Brand Strategist · Campus Leader</p>
+    <p class="hero-desc">A results-driven marketing undergraduate with proven expertise in campus branding, large-scale campaign execution, and student community engagement across Bangladesh.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#contact"><i class="ti ti-mail"></i> Get in Touch</a>
+      <a class="btn-outline" href="#experience"><i class="ti ti-arrow-down"></i> View Experience</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-avatar">RB</div>
+      <div class="hero-card-name">Rudhra Biswas</div>
+      <div class="hero-card-title">Marketing Undergraduate · Jagannath University</div>
+      <div class="hero-card-divider"></div>
+      <div class="hero-card-meta">
+        <div class="hero-card-row"><i class="ti ti-map-pin"></i> Sonargaon, Narayanganj</div>
+        <div class="hero-card-row"><i class="ti ti-school"></i> BBA, Major in Marketing</div>
+        <div class="hero-card-row"><i class="ti ti-calendar"></i> Graduating June 2027</div>
+        <div class="hero-card-row"><i class="ti ti-brand-linkedin"></i> linkedin.com/in/rudhrabiswas</div>
+        <div class="hero-card-row"><i class="ti ti-phone"></i> +880 1309 919601</div>
+      </div>
+      <div class="cgpa-display">
+        <div class="cgpa-label">Academic Performance</div>
+        <div class="cgpa-row">
+          <div class="cgpa-val">3.76</div>
+          <div class="cgpa-max">/ 4.00 CGPA</div>
+        </div>
+        <div class="cgpa-bar"><div class="cgpa-fill"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-cell"><span class="stat-num">1,000+</span><span class="stat-label">Registrations Driven</span></div>
+  <div class="stat-cell"><span class="stat-num">500+</span><span class="stat-label">Community Beneficiaries</span></div>
+  <div class="stat-cell"><span class="stat-num">300+</span><span class="stat-label">Event Attendees</span></div>
+  <div class="stat-cell"><span class="stat-num">30+</span><span class="stat-label">Roadshows Led</span></div>
+  <div class="stat-cell"><span class="stat-num">3+</span><span class="stat-label">Years of Leadership</span></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-wrapper">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-tag">About</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <h2 class="sec-title">Passionate About<br>Brand & Community</h2>
+        <p class="about-text">I'm a Marketing undergraduate at Jagannath University, Dhaka, with a 3.76 CGPA and a consistent track record of turning brand goals into on-ground impact. From leading the Branding & Digital Communication division of the JU Career Club to serving as a Campus Ambassador for Pathao, I have built a reputation for executing campaigns that resonate.</p>
+        <p class="about-text">My work spans online promotion, roadshows, booth management, community outreach, event production, and cross-university collaboration. I understand how to connect a brand's story to a student audience — and I do it with measurable results.</p>
+        <div class="about-highlights">
+          <div class="about-chip"><i class="ti ti-speakerphone"></i> Campaign Strategy</div>
+          <div class="about-chip"><i class="ti ti-users"></i> Community Outreach</div>
+          <div class="about-chip"><i class="ti ti-trending-up"></i> Brand Growth</div>
+          <div class="about-chip"><i class="ti ti-microphone"></i> Public Speaking</div>
+          <div class="about-chip"><i class="ti ti-calendar-event"></i> Event Management</div>
+          <div class="about-chip"><i class="ti ti-device-laptop"></i> Digital Marketing</div>
+        </div>
+      </div>
+      <div>
+        <div class="profile-box">
+          <div class="profile-avatar-lg">RB</div>
+          <div class="profile-name">Rudhra Biswas</div>
+          <div class="profile-role">Marketing Undergraduate · Campus Ambassador</div>
+          <div class="profile-divider"></div>
+          <div class="profile-row"><i class="ti ti-mail"></i> rudhrabiswas601@gmail.com</div>
+          <div class="profile-row"><i class="ti ti-phone"></i> +880 1309 919601</div>
+          <div class="profile-row"><i class="ti ti-map-pin"></i> Sonargaon, Narayanganj</div>
+          <div class="profile-row"><i class="ti ti-school"></i> Jagannath University, Dhaka<br>BBA · Major in Marketing · 2023–2027</div>
+          <div class="profile-row"><i class="ti ti-brand-linkedin"></i> <a href="https://www.linkedin.com/in/rudhrabiswas" target="_blank">linkedin.com/in/rudhrabiswas</a></div>
+          <div class="profile-row"><i class="ti ti-language"></i> Bangla &amp; English</div>
+          <div class="cgpa-display">
+            <div class="cgpa-label">CGPA</div>
+            <div class="cgpa-row"><div class="cgpa-val">3.76</div><div class="cgpa-max">/ 4.00</div></div>
+            <div class="cgpa-bar"><div class="cgpa-fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-section">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-tag">Experience</span>
+      <div class="sec-line"></div>
+    </div>
+    <h2 class="sec-title" style="margin-bottom:8px;">Leadership &amp;<br>Professional Roles</h2>
+    <p class="sec-sub" style="margin-bottom:48px;">Three years of progressive leadership across marketing, branding, and community engagement.</p>
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-dot-col"><div class="exp-dot"><i class="ti ti-speakerphone"></i></div></div>
+        <div class="exp-body">
+          <div class="exp-head">
+            <div>
+              <div class="exp-title">Director of Branding &amp; Digital Communication</div>
+              <div class="exp-org">Jagannath University Career Club, Dhaka</div>
+            </div>
+            <span class="exp-duration-pill">2024 – Present</span>
+          </div>
+          <ul class="exp-list">
+            <li>Led the LDP-26 promotional campaign through online marketing, roadshows, and booth management — generating 1,000+ registrations</li>
+            <li>Engaged 300+ attendees at National Job Junction 2025 through booth management, CV collection, and corporate liaison with Ispahani Limited</li>
+            <li>Secured 200+ registrations for "Fly High with Erasmus Mundus" through cross-university promotional campaigns</li>
+            <li>Directed 30+ departmental roadshows and multi-channel campaigns for Creative Maniac 3.0, driving 100+ registrations</li>
+            <li>Led Citizenship Olympiad 2026 campaign via online promotion and campus roadshows</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot-col"><div class="exp-dot"><i class="ti ti-map"></i></div></div>
+        <div class="exp-body">
+          <div class="exp-head">
+            <div>
+              <div class="exp-title">Campus Ambassador</div>
+              <div class="exp-org">Pathao, Dhaka</div>
+            </div>
+            <span class="exp-duration-pill">2026 – Present</span>
+          </div>
+          <ul class="exp-list">
+            <li>Drive student outreach and brand awareness through on-campus engagement and promotional activities</li>
+            <li>Promote brand initiatives through campus campaigns, events, and workshops</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot-col"><div class="exp-dot"><i class="ti ti-tournament"></i></div></div>
+        <div class="exp-body">
+          <div class="exp-head">
+            <div>
+              <div class="exp-title">Training &amp; Workshop Secretary</div>
+              <div class="exp-org">Marketing Debating Club, Dhaka</div>
+            </div>
+            <span class="exp-duration-pill">2023 – Present</span>
+          </div>
+          <ul class="exp-list">
+            <li>Co-organized "One Minute Show 3.0" and "Verbal Duel 2.0" — managing full event coordination and participant engagement</li>
+            <li>Managed fresher's recruitment operations for 60+ participants, including scheduling and viva coordination</li>
+            <li>Led training programs, workshops, and inter-university debate activities for member development</li>
+            <li>Mentored a 5-member team in "Market Intellect: Your Voice" and hosted panel discussions on branding and pricing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot-col"><div class="exp-dot"><i class="ti ti-bulb"></i></div></div>
+        <div class="exp-body">
+          <div class="exp-head">
+            <div>
+              <div class="exp-title">Marketing &amp; Event Operations Volunteer</div>
+              <div class="exp-org">Hult Prize at Jagannath University</div>
+            </div>
+            <span class="exp-duration-pill">2025</span>
+          </div>
+          <ul class="exp-list">
+            <li>Supported online promotion, audience engagement, and booth management for campus-wide Hult Prize events</li>
+            <li>Ensured smooth event execution and high participant interaction throughout the competition</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGNS -->
+<section id="campaigns" class="campaigns-section">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-tag">Campaigns</span>
+      <div class="sec-line"></div>
+    </div>
+    <h2 class="sec-title" style="margin-bottom:8px;">Key Campaign<br>Highlights</h2>
+    <p class="sec-sub" style="margin-bottom:48px;">Measurable outcomes from on-ground marketing and community initiatives.</p>
+    <div class="campaign-grid">
+      <div class="campaign-card">
+        <div class="campaign-icon"><i class="ti ti-speakerphone"></i></div>
+        <div class="campaign-name">LDP-26 Promotional Campaign</div>
+        <div class="campaign-desc">Multi-channel campaign via online marketing, roadshows, and booth management. Led the Brand &amp; Marketing team end-to-end across Dhaka campuses.</div>
+        <div class="campaign-impact"><span class="campaign-num">1,000+</span><span class="campaign-unit">registrations generated</span></div>
+      </div>
+      <div class="campaign-card">
+        <div class="campaign-icon"><i class="ti ti-briefcase"></i></div>
+        <div class="campaign-name">National Job Junction 2025</div>
+        <div class="campaign-desc">Managed booths, collected CVs, and coordinated company promotion in partnership with Ispahani Limited at this major national career fair.</div>
+        <div class="campaign-impact"><span class="campaign-num">300+</span><span class="campaign-unit">attendees engaged</span></div>
+      </div>
+      <div class="campaign-card">
+        <div class="campaign-icon"><i class="ti ti-world"></i></div>
+        <div class="campaign-name">Fly High with Erasmus Mundus</div>
+        <div class="campaign-desc">Cross-university promotional campaigns targeting students at multiple institutions across Dhaka to drive scholarship awareness and applications.</div>
+        <div class="campaign-impact"><span class="campaign-num">200+</span><span class="campaign-unit">registrations secured</span></div>
+      </div>
+      <div class="campaign-card">
+        <div class="campaign-icon"><i class="ti ti-heart-handshake"></i></div>
+        <div class="campaign-name">Hygiene Evolution — BYLC</div>
+        <div class="campaign-desc">Community health-awareness initiative in TNT Colony, Karail Bosti &amp; Banani using surveys, FGDs, webinars, and workshops.</div>
+        <div class="campaign-impact"><span class="campaign-num">500+</span><span class="campaign-unit">beneficiaries reached</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="ach-section">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-tag">Honours</span>
+      <div class="sec-line"></div>
+    </div>
+    <h2 class="sec-title" style="margin-bottom:48px;">Awards &amp;<br>Recognition</h2>
+    <div class="ach-grid">
+      <div class="ach-card">
+        <div class="ach-medal gold"><i class="ti ti-trophy"></i></div>
+        <div class="ach-title">Round of 16 — Marketing Debate Fest 3.0</div>
+        <div class="ach-sub">Ranked top 25% among 64 teams in a national inter-university debate competition. Represented Jagannath University.</div>
+        <div class="ach-year">2026</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-medal silver"><i class="ti ti-medal"></i></div>
+        <div class="ach-title">Runner-up &amp; DOF — Verbal Duel 1.0</div>
+        <div class="ach-sub">Debate competition organized by Brand Practitioners Bangladesh under the Marketing Debating Club.</div>
+        <div class="ach-year">2024</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-medal gold"><i class="ti ti-award"></i></div>
+        <div class="ach-title">Champion — One Day Intro 1.0</div>
+        <div class="ach-sub">Won the debate competition organized by the Marketing Debating Club, demonstrating strong oratory and analytical skills.</div>
+        <div class="ach-year">2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-tag">Skills</span>
+      <div class="sec-line"></div>
+    </div>
+    <h2 class="sec-title" style="margin-bottom:40px;">Core Competencies</h2>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-group-label">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="skill-pill">Campus Marketing</span>
+          <span class="skill-pill">Campaign Management</span>
+          <span class="skill-pill">Event Promotion</span>
+          <span class="skill-pill">Community Engagement</span>
+          <span class="skill-pill">Team Leadership</span>
+          <span class="skill-pill">Public Speaking</span>
+          <span class="skill-pill">Networking</span>
+          <span class="skill-pill">Communication</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label">Tools &amp; Technology</div>
+        <div class="skill-tags">
+          <span class="skill-pill">Canva</span>
+          <span class="skill-pill">MS PowerPoint</span>
+          <span class="skill-pill">MS Excel</span>
+          <span class="skill-pill">MS Word</span>
+          <span class="skill-pill">Google Forms</span>
+          <span class="skill-pill">Google Sheets</span>
+          <span class="skill-pill">Google Docs</span>
+        </div>
+        <div class="skill-group-label" style="margin-top:24px;">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-pill">Bangla (Native)</span>
+          <span class="skill-pill">English (Proficient)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="edu-section">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-tag">Education</span>
+      <div class="sec-line"></div>
+    </div>
+    <h2 class="sec-title" style="margin-bottom:40px;">Academic Background</h2>
+    <div class="edu-cards">
+      <div class="edu-card">
+        <div class="edu-left">
+          <div class="edu-icon"><i class="ti ti-building-bank"></i></div>
+          <div>
+            <div class="edu-school">Jagannath University, Dhaka</div>
+            <div class="edu-degree">Bachelor of Business Administration · Major in Marketing</div>
+            <span class="edu-year-tag">2023 – June 2027</span>
+          </div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-gpa">3.76</div>
+          <div class="edu-gpa-label">CGPA / 4.00</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-left">
+          <div class="edu-icon"><i class="ti ti-school"></i></div>
+          <div>
+            <div class="edu-school">Notre Dame College, Dhaka</div>
+            <div class="edu-degree">Higher Secondary Certificate · Science</div>
+            <span class="edu-year-tag">2021</span>
+          </div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-gpa">5.00</div>
+          <div class="edu-gpa-label">GPA / 5.00</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-left">
+          <div class="edu-icon"><i class="ti ti-book"></i></div>
+          <div>
+            <div class="edu-school">Perabo Adarsha High School, Narayanganj</div>
+            <div class="edu-degree">Secondary School Certificate · Science</div>
+            <span class="edu-year-tag">2019</span>
+          </div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-gpa">5.00</div>
+          <div class="edu-gpa-label">GPA / 5.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects-section">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-tag">Projects</span>
+      <div class="sec-line"></div>
+    </div>
+    <h2 class="sec-title" style="margin-bottom:8px;">Featured<br>Project</h2>
+    <p class="sec-sub" style="margin-bottom:48px;">Community-driven initiative combining research, outreach, and digital strategy to create real-world impact.</p>
+
+    <div class="project-card">
+      <div class="project-banner">
+        <div class="project-badge"><i class="ti ti-leaf"></i> Community Health · BYLC BBLT-49</div>
+        <div class="project-banner-title">Hygiene Evolution</div>
+        <div class="project-banner-sub">Bangladesh Youth Leadership Center (BYLC) · 2024</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">A comprehensive community health-awareness project conducted under BYLC's Building Bridges through Leadership Training (BBLT-49) program. The initiative targeted underprivileged communities in Dhaka, using a multi-method approach — surveys, focus group discussions, webinars, and workshops — to raise hygiene awareness and drive behavioral change among 500+ beneficiaries both online and offline.</p>
+
+        <div class="project-stats-row">
+          <div class="project-stat">
+            <span class="project-stat-num">500+</span>
+            <span class="project-stat-label">Beneficiaries Reached</span>
+          </div>
+          <div class="project-stat">
+            <span class="project-stat-num">3</span>
+            <span class="project-stat-label">Communities Served</span>
+          </div>
+          <div class="project-stat">
+            <span class="project-stat-num">2</span>
+            <span class="project-stat-label">Channels (Online &amp; Offline)</span>
+          </div>
+        </div>
+
+        <div class="project-methods">
+          <div class="project-methods-label">Methods &amp; Deliverables</div>
+          <div class="method-tags">
+            <span class="method-tag"><i class="ti ti-clipboard-list"></i> Community Surveys</span>
+            <span class="method-tag"><i class="ti ti-users-group"></i> Focus Group Discussions</span>
+            <span class="method-tag"><i class="ti ti-device-desktop"></i> Webinars</span>
+            <span class="method-tag"><i class="ti ti-chalkboard"></i> Workshops</span>
+            <span class="method-tag"><i class="ti ti-news"></i> Wall Magazine</span>
+            <span class="method-tag"><i class="ti ti-presentation"></i> Final Presentations</span>
+            <span class="method-tag"><i class="ti ti-chart-dots"></i> Data Analytics</span>
+            <span class="method-tag"><i class="ti ti-share"></i> Digital Promotion</span>
+          </div>
+        </div>
+
+        <div class="project-responsibilities">
+          <div class="project-responsibilities-label">Key Responsibilities</div>
+          <ul class="project-resp-list">
+            <li><i class="ti ti-device-mobile"></i> Led digital promotion to reach secondary target audiences — created content and managed online channels to drive registrations and attendance</li>
+            <li><i class="ti ti-chart-bar"></i> Conducted research and analytics: designed and administered surveys, facilitated focus group discussions, and analyzed data to inform content and report outcomes</li>
+            <li><i class="ti ti-layout-collage"></i> Developed session formats and activities for workshops and webinars to maximize participant engagement and knowledge retention</li>
+            <li><i class="ti ti-map-pin"></i> Delivered offline outreach across three target communities — TNT Colony, Karail Bosti, and Banani</li>
+          </ul>
+        </div>
+
+        <div class="project-locations">
+          <span class="project-locations-label">Target Communities:</span>
+          <span class="location-tag">TNT Colony</span>
+          <span class="location-tag">Karail Bosti</span>
+          <span class="location-tag">Banani, Dhaka</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section class="training-section">
+  <div class="page">
+    <div class="sec-header">
+      <span class="sec-tag">Development</span>
+      <div class="sec-line"></div>
+    </div>
+    <h2 class="sec-title" style="margin-bottom:40px;">Leadership &amp;<br>Training Programs</h2>
+    <div class="training-grid">
+      <div class="training-card">
+        <div class="training-icon"><i class="ti ti-globe"></i></div>
+        <div>
+          <div class="training-name">Aspire Leaders Program</div>
+          <div class="training-org">Aspire Institute</div>
+          <span class="training-year">2025</span>
+        </div>
+      </div>
+      <div class="training-card">
+        <div class="training-icon"><i class="ti ti-users"></i></div>
+        <div>
+          <div class="training-name">Building Bridges through Leadership Training (BBLT)</div>
+          <div class="training-org">Bangladesh Youth Leadership Center (BYLC)</div>
+          <span class="training-year">2024</span>
+        </div>
+      </div>
+      <div class="training-card">
+        <div class="training-icon"><i class="ti ti-transform"></i></div>
+        <div>
+          <div class="training-name">Train 2 Transform</div>
+          <div class="training-org">Jagannath University Career Club</div>
+          <span class="training-year">2026</span>
+        </div>
+      </div>
+      <div class="training-card">
+        <div class="training-icon"><i class="ti ti-chart-bar"></i></div>
+        <div>
+          <div class="training-name">STEPUP XPERTISE 1.0</div>
+          <div class="training-org">Jagannath University Career Club</div>
+          <span class="training-year">2024</span>
+        </div>
+      </div>
+      <div class="training-card">
+        <div class="training-icon"><i class="ti ti-rocket"></i></div>
+        <div>
+          <div class="training-name">Uplift Your Career 3.0</div>
+          <div class="training-org">Jagannath University Career Club</div>
+          <span class="training-year">2024</span>
+        </div>
+      </div>
+      <div class="training-card">
+        <div class="training-icon"><i class="ti ti-brain"></i></div>
+        <div>
+          <div class="training-name">SkillsBoost Soft Skills Development</div>
+          <div class="training-org">Youth School Development Institute</div>
+          <span class="training-year">2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact" class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <h2>Let's<br><span>Connect</span></h2>
+      <p>Open to opportunities, collaborations, and conversations about the Reneta Campus Ambassador Program. Feel free to reach out via any of the channels below.</p>
+    </div>
+    <div class="footer-contact">
+      <div class="footer-row"><i class="ti ti-mail"></i><a href="mailto:rudhrabiswas601@gmail.com">rudhrabiswas601@gmail.com</a></div>
+      <div class="footer-row"><i class="ti ti-phone"></i><a href="tel:+8801309919601">+880 1309 919601</a></div>
+      <div class="footer-row"><i class="ti ti-brand-linkedin"></i><a href="https://www.linkedin.com/in/rudhrabiswas" target="_blank">linkedin.com/in/rudhrabiswas</a></div>
+      <div class="footer-row"><i class="ti ti-map-pin"></i><span>Sonargaon, Narayanganj, Bangladesh</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-brand">Rudhra Biswas</span>
+    <span>Marketing Undergraduate · Jagannath University · Graduating 2027</span>
+  </div>
+</footer>
+
+</body>
+</html>
